@@ -1,0 +1,59 @@
+  body {
+    background-color: #666;
+  }
+  .home {
+    .hd-two {
+      background-color: #fff;
+      margin-bottom: 10px;
+      .fa-user-circle-o,.fa-list-ul {
+        font-size: 36px;
+        color: #262930;
+      }
+      .fa-list-ul {
+        font-size: 20px;
+      }
+    }
+    .list-mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, .5);
+      z-index: 10;
+    }
+    .fade-enter-active, .fade-leave-active {
+      transition: opacity .5s
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+      opacity: 0
+    }
+    .chargeList {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      z-index: 20;
+      background-color: blueviolet;
+      .listHeader {
+        display: flex;
+        -webkit-display: flex;
+        align-items: center; //垂直居中
+        -webkit-align-items: center; //垂直居中
+        justify-content:space-between;
+        -webkit-justify-content:space-between;
+        background: #4478ac;
+        .headerL {
+          .listTab {     
+            width: 200px; 
+            background: #4478ac;
+            .tabItem {
+              color: #fff;
+            }
+          }
+        }
+        .headerR {
+        }
+      }
+    }
+  }
