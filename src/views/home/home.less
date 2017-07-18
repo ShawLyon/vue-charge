@@ -41,6 +41,7 @@
       left: 0;
       bottom: 0;
       width: 100%;
+      height: 80%;
       z-index: 20;
       background-color: blueviolet;
       .listHeader {
@@ -63,66 +64,67 @@
         .headerR {
         }
       }
-      .listMain {
-        // padding: 20px 10px;
-        // margin-bottom: 20px;
-        background-color: @color-background;
-        .main-item {
-          margin-bottom: 20px;
-          padding: 20px 10px;
-          background-color: @color-background-f;
-        }
-        .item-hd {
-          background-image: url('./dingwei.png');
-          background-size: 17px 27px;
-          background-position-y: center;
-          background-repeat: no-repeat;
-          padding: 0 0 0 50px;
-          .item-hd-main {
+      .listMainWrap {
+        height: 100%;
+        overflow: hidden;
+      }
+        .listMain {
+          background-color: @color-background;
+          .main-item {
+            margin-bottom: 20px;
+            padding: 20px 10px;
+            background-color: @color-background-f;
+          }
+          .item-hd {
+            background-image: url('./dingwei.png');
+            background-size: 17px 27px;
+            background-position-y: center;
+            background-repeat: no-repeat;
+            padding: 0 0 0 50px;
+            .item-hd-main {
+              display: flex;
+              -webkit-display: flex;
+              justify-content: space-between;
+              -webkit-justify-content: space-between;
+              border-bottom:  1px solid #ccc;
+              padding: 0 0 10px 0;
+              .head-l {
+                // border-bottom:  1px solid #ccc;
+              }
+              .head-r {
+                align-self: flex-end;
+                -webkit-align-self: flex-end;
+              }
+            }
+            
+          }
+          .item-ft {   
             display: flex;
             -webkit-display: flex;
             justify-content: space-between;
             -webkit-justify-content: space-between;
-            border-bottom:  1px solid #ccc;
-            padding: 0 0 10px 0;
-            .head-l {
-              // border-bottom:  1px solid #ccc;
+            padding-top: 10px; 
+            .foot-l {       
+              p:nth-of-type(1) {
+                padding: 0 0 0 50px;
+              }
+              p:nth-of-type(2) {
+                padding: 0 0 0 50px;
+                background-image: url('./youhui.png');
+                background-size: 13px 12px;
+                background-position-y: center;
+                background-repeat: no-repeat;
+              }
             }
-            .head-r {
+            .foot-r {
               align-self: flex-end;
               -webkit-align-self: flex-end;
-            }
-          }
-          
-        }
-        .item-ft {   
-          display: flex;
-          -webkit-display: flex;
-          justify-content: space-between;
-          -webkit-justify-content: space-between;
-          padding-top: 10px; 
-          .foot-l {       
-            p:nth-of-type(1) {
-              padding: 0 0 0 50px;
-            }
-            p:nth-of-type(2) {
-              padding: 0 0 0 50px;
-              background-image: url('./youhui.png');
-              background-size: 13px 12px;
-              background-position-y: center;
-              background-repeat: no-repeat;
-            }
-          }
-          .foot-r {
-            align-self: flex-end;
-            -webkit-align-self: flex-end;
-            .weui-btn_default{    
-              color: #fff;
-              background-color: #4478ac;
+              .weui-btn_default{    
+                color: #fff;
+                background-color: #4478ac;
+              }
             }
           }
         }
-
-      }
     }
   }

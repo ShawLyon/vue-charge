@@ -3,9 +3,9 @@
     <x-header :right-options="{showMore: true}" @on-click-more="showMenus = true">充电桩详情</x-header>
     <div class="chargeType">
       <div class="type-l">
-        <h3>深圳市龙华新区</h3>
-        <p>设备号: <span>5265465465</span></p>
-        <p>充电类型: <span>慢充</span></p>
+        <h3>{{chargeDesc[chargeIndex].name}}</h3>
+        <p>设备号: <span>{{chargeDesc[chargeIndex].device}}</span></p>
+        <p>充电类型: <span>{{chargeDesc[chargeIndex].type}}</span></p>
       </div>
       <div class="type-r">
         <x-button mini class="codeBtn">扫码充电</x-button>
@@ -14,14 +14,14 @@
     <div class="chargePort">
       <cell title="充电桩端口" value="value"></cell>
       <ul class="portList" >
-        <li style="display: inline-block" class="item" v-for="(item,index) in items">
+        <li style="display: inline-block" class="item" v-for="(item,index) in chargeDesc">
           <div class="index">{{index+1}}</div>
           <div class="status">{{item.status}}</div>
         </li>
       </ul>
     </div>
     <div class="chargeAddress">
-      <div class="address-l">南山区北环大道333号</div>
+      <div class="address-l">{{chargeDesc[chargeIndex].address}}</div>
       <div class="address-r">去这里</div>
     </div>
     <div class="chargeDesc">
@@ -37,15 +37,15 @@
         </p>
       </div>
       <div>
-        <!-- <p>{{item.promotion}}</p> -->
-        <p>充200送50</p>
-        <p>联系电话: 0755-2526 2566</p>
+        <p>{{chargeDesc[chargeIndex].promotion}}</p>
+        <p>联系电话: {{tel}}</p>
       </div>
     </div>
   </div>
 </template>
 <script >
 import {XHeader,XButton,Cell} from 'vux'
+import { mapState } from 'vuex'
 export default {
   data() {
     return {
@@ -54,13 +54,20 @@ export default {
         {type:2,status:'使用中'},
         {type:3,status:'维护'}
       ],
-      title: 'bbtt'
+      chargeIndex: chargeIndex
     }
       
   },
   props: {
     title: 'bbtt'
-  },  
+  },
+  computed: {
+    ...mapState([
+      'chargeIndex',
+      'chargeDesc',
+      'tel'
+    ])
+  },
   components: {
     XHeader,
     XButton,
