@@ -14,9 +14,9 @@
     <div class="chargePort">
       <cell title="充电桩端口" value="value"></cell>
       <ul class="portList" >
-        <li style="display: inline-block" class="item" v-for="(item,index) in chargeDesc">
+        <li style="display: inline-block" class="item" v-for="(item,index) in chargeDesc" :class="[item.status==0 ? usedColor: maintainColor]">
           <div class="index">{{index+1}}</div>
-          <div class="status">{{item.status}}</div>
+          <div class="status" >{{item.status}}</div>
         </li>
       </ul>
     </div>
@@ -54,19 +54,23 @@ export default {
         {type:2,status:'使用中'},
         {type:3,status:'维护'}
       ],
-      chargeIndex: chargeIndex
+      chargeIndex: chargeIndex,
+      activeColor: '#4478ac',
+      usedColor: 'used',
+      maintainColor: 'maintain',
     }
-      
   },
   props: {
-    title: 'bbtt'
+ 
   },
   computed: {
     ...mapState([
       'chargeIndex',
       'chargeDesc',
       'tel'
-    ])
+    ]),
+
+    
   },
   components: {
     XHeader,

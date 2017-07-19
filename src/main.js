@@ -5,9 +5,10 @@ import FastClick from 'fastclick'
 import router from './router'
 import store from './store'
 import App from './App'
-
+import VueScroller from 'vue-scroller'
 import 'font-awesome/css/font-awesome.min.css'
 
+Vue.use(VueScroller)
 
 FastClick.attach(document.body)
 

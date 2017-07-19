@@ -1,0 +1,44 @@
+.chargeList {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 80%;
+  z-index: 20;
+  background-color: @color-background;
+  .listHeader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 44px;
+    display: flex;
+    -webkit-display: flex;
+    align-items: center; //垂直居中
+    -webkit-align-items: center; //垂直居中
+    justify-content:space-between;
+    -webkit-justify-content:space-between;
+    background: #4478ac;
+    z-index: 100;
+    .headerL {
+      width: 50%;
+      span {
+        padding: 0 30px;
+        color: #fff;
+      }
+      .router-link-active {
+        text-shadow: 0 0 10px;
+      }
+    }
+    .headerR {
+      padding: 16px;
+      font-size: @font-size-large-x;
+      color: @font-color;
+    }
+  }
+  
+  .listContent {
+    margin-top: 44px;
+  }
+    
+}

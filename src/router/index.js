@@ -2,7 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import home from '@/views/home/home'
 import chargeDtail from '@/views/chargeDetail/chargeDetail'
-import chargeMap from '@/components/chargeMap/chargeMap'
+// import mapEleCar from '@/components/mapEleCar/mapEleCar'
+// import mapSteamCar from '@/components/mapSteamCar/mapSteamCar'
+import listEleCar from '@/components/listEleCar/listEleCar'
+import listSteamCar from '@/components/listSteamCar/listSteamCar'
 
 
 Vue.use(Router)
@@ -14,7 +17,9 @@ const router = new Router({
       name: 'home',
       component: home,
       children: [
-        {path: '',name: 'chargeMap',component: chargeMap}
+        {path: '/', redirect: '/listEleCar'},    
+        {path: '/listEleCar',component: listEleCar},
+        {path: '/listSteamCar',component: listSteamCar},
       ]
     },
     {

@@ -1,5 +1,5 @@
 <template>
-  <div>map1</div>
+  <div>mapEleCar</div>
 </template>
 <script>
 export default {
