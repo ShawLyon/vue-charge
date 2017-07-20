@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <x-header :right-options="{showMore: true}" @on-click-more="showMenus = true">首页</x-header>
+    <v-header></v-header>
     <x-header :left-options="{showBack: false}" class="hd-two">
-      <tab :line-width=2 active-color='#4478ac' v-model="index" animate="false">
+      <tab :line-width=6 active-color='#4478ac' v-model="index">
         <tab-item class="vux-center" :selected="demo2 === item" v-for="(item, index) in list2" @click="demo2 = item" :key="index">{{item}}</tab-item>
       </tab>
       <a slot="left" class="userIcon">
@@ -22,24 +22,21 @@
       </swiper>
     </div>
     
-    <div v-transfer-dom>
-      <actionsheet :menus="menus" v-model="showMenus" show-cancel></actionsheet>
-    </div>
 
     <transition name="fade">
       <list-car v-if="listShow"></list-car>    
     </transition>
     <!--蒙板  -->
     <transition name="fade">
-      <div class="list-mask" v-show="listShow" @click="hideList()"></div>
+      <div class="list-mask" v-show="listShow" @click="toogleList()"></div>
     </transition>
   
   </div>
 </template>
 <script>
-import router from '../../router'
-import header from '../../components/header/header'
-import listCar from '../../components/listCar/listCar'
+import router from 'router'
+import header from 'components/header/header'
+import listCar from 'components/listCar/listCar'
 import { XHeader, XButton, Actionsheet, TransferDom, Tab, TabItem, Badge, Swiper, SwiperItem } from 'vux'
 import { mapState, mapMutations } from 'vuex'
 
@@ -77,9 +74,6 @@ export default {
     listShow() {
       return this.fold;
     },
-    hideList() { // 点击蒙板hide list
-      this.$store.commit('toogleFold');
-    },
     ...mapState([
       'chargeDesc',
       'fold'
@@ -88,19 +82,12 @@ export default {
 
   },
   methods: {
+    ...mapMutations([
+      'TOOGLE_FOLD'
+    ]),
     toogleList() {
-      this.$store.commit('toogleFold');
-    },
-    mapEleCar() {
-      router.push('/');
-    },
-    mapSteamCar() {
-      router.push('/mapSteamCar');
+      this.TOOGLE_FOLD();
     }
-
-    // ...mapMutations([
-    //   'activeIndex'
-    // ])
 
   },
   created() {
@@ -111,7 +98,7 @@ export default {
 <style lang="less" scoped>
 @import '~vux/src/styles/1px.less';
 @import './home.less';
-@import '../../common/less/variable.less';
+@import '~common/less/variable.less';
 </style>
 
 

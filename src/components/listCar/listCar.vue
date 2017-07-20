@@ -14,16 +14,13 @@
       </div>
     </div>
     <div class="listContent">
-      // 接着在父组件内 // watch $route 决定使用哪种过渡
-      <transition :name="transitionName">
         <router-view></router-view>
-      </transition>
     </div>
   </div>
 </template>
 <script>
 import router from '../../router'
-
+import {mapMutations} from 'vuex'
 export default {
   data() {
     return {
@@ -32,20 +29,17 @@ export default {
   },
 
   methods: {
+    ...mapMutations([
+      'TOOGLE_FOLD'
+    ]),
     hideList() { // 点击 X   hide list
-      this.$store.commit('toogleFold');
+      this.TOOGLE_FOLD();
     },
 
   },
   mounted() {
-  },
-  watch: {
-    '$route'(to, from) {
-      const toDepth = to.path.split('/listEleCar').length
-      const fromDepth = from.path.split('/listSteamCar').length
-      this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
-    }
   }
+
 }
 </script>
 <style lang="less">

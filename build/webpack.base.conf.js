@@ -27,6 +27,9 @@ let webpackConfig = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'common': resolve('src/common'),
+      'router': resolve('src/router'),
+      'components': resolve('src/components')
     }
   },
   module: {
@@ -53,7 +56,7 @@ let webpackConfig = {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url-loader',
         options: {
-          limit: 10000,
+          limit: 80000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       }

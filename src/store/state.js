@@ -1,10 +1,11 @@
 
 const state = {
-  chargeIndex: '',
   tel: '0755-1234 3234',
   fold: false,
+  titleText: '',
   chargeDesc: [
         {
+          id: '6546565111zxc',
           car: '0',
           type: '慢充',
           device: '656554565',
@@ -17,6 +18,7 @@ const state = {
           status: '0'
         },
         {
+          id: '64546889cfff',
           car: '1',
           type: '快充',
           device: '955362245',
@@ -29,9 +31,10 @@ const state = {
           status: '1'
         },
         {
+          id: '6458787878ghgh',
           car: '1',
           type: '快充',
-          device: '955362245',
+          device: '111111111',
           name: '深圳市龙华新区充电桩2',
           able: 5,
           address: '南山区北环大道111号',
@@ -41,6 +44,7 @@ const state = {
           status: '2'
         },
         {
+          id: '645887932vjuf',
           car: '0',
           type: '快充',
           device: '955362245',
@@ -49,7 +53,8 @@ const state = {
           address: '南山区北环大道111号',
           distance: '5公里',
           price: '2',
-          promotion: '充200元送20'
+          promotion: '充200元送20',
+          status: '2'
         },
  
       ]

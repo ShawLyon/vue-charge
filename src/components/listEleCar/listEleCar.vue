@@ -3,7 +3,7 @@
     <scroller :on-refresh="refresh" :on-infinite="infinite" height="100%">
       <ul class="listMain">
         <li class="main-item" v-for="(item,index) in chargeDesc" v-show="item.car==1">
-          <div class="item-hd" @click="jumpDetail(index,$event)">
+          <div class="item-hd" @click="jumpDetail(index)">
             <div class="item-hd-main">
               <div class="head-l">
                 <p>{{item.name}}</p>
@@ -20,7 +20,7 @@
               <p>{{item.promotion}}</p>
             </div>
             <div class="foot-r">
-              <x-button mini class="navBtn">导航</x-button>
+              <x-button mini class="navBtn" plain>导航</x-button>
             </div>
           </div>
         </li>
@@ -29,23 +29,35 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 import { XButton } from 'vux'
-
+import router from 'router'
 export default {
   components: {
     XButton,
   },
   computed: {
     ...mapState([
-      'chargeDesc',
-      'fold'
+      'chargeDesc'
     ])
   },
   methods: {
+    ...mapMutations([
+      'SET_TITLE_TEXT'
+    ]),
     jumpDetail(index) {
-      this.$store.commit('activeIndex', index); //把当前index存储到state，用于获取相应详情页
-      this.$router.push('/chargeDtail');
+      this.SET_TITLE_TEXT('充电桩详情');
+      let activeCharge = this.chargeDesc[index];
+      this.$router.push({
+        name: 'chargeDetail', params: {
+          id: activeCharge.id,
+          name: activeCharge.name,
+          device: activeCharge.device,
+          address: activeCharge.address,
+          type: activeCharge.type,
+          promotion: activeCharge.promotion,
+        }
+      });
     },
 
   }

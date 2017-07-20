@@ -7,6 +7,7 @@ import store from './store'
 import App from './App'
 import VueScroller from 'vue-scroller'
 import 'font-awesome/css/font-awesome.min.css'
+import 'common/less/index.less'
 
 Vue.use(VueScroller)
 

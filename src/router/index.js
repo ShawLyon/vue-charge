@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import home from '@/views/home/home'
-import chargeDtail from '@/views/chargeDetail/chargeDetail'
+import chargeDetail from '@/views/chargeDetail/chargeDetail'
 // import mapEleCar from '@/components/mapEleCar/mapEleCar'
 // import mapSteamCar from '@/components/mapSteamCar/mapSteamCar'
 import listEleCar from '@/components/listEleCar/listEleCar'
@@ -14,19 +14,18 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
       component: home,
       children: [
         {path: '/', redirect: '/listEleCar'},    
-        {path: '/listEleCar',component: listEleCar},
-        {path: '/listSteamCar',component: listSteamCar},
+        {path: '/listEleCar', component: listEleCar},
+        {path: '/listSteamCar', component: listSteamCar},
       ]
     },
     {
-      path: '/chargeDtail',
-      name: 'chargeDtail',
+      path: '/chargeDetail/:id',
+      name: 'chargeDetail',
       // component: resolve => require(['views/chargeDetail/chargeDetail.vue'],resolve)
-      component: chargeDtail
+      component: chargeDetail
     }
   ]
 })

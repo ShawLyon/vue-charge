@@ -6,11 +6,14 @@
     -webkit-display: flex;
     justify-content: space-between;
     -webkit-justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     padding: 10px;
     background-color: #fff;
     .type-l {
-      
+      line-height: 24px;
+      h3 {
+        font-size: @font-size-large;
+      }
     }
     .type-r {
       align-self: flex-end;
@@ -22,9 +25,11 @@
     }
   }
   .chargePort {
-    margin-bottom: 20px;
-   
+    margin-bottom: 15px;
     background-color: @color-background-f;
+    .vux-label {
+      font-size: @font-size-large;
+    }
     .portList {
       .idle {
         color: @color-background-x;
@@ -63,8 +68,33 @@
     .address-l {
 
     }
+    .address-r {
+      padding-left: 10px;
+      background-image: url('./dingwei.png');
+      background-repeat: no-repeat;
+      background-size: 10px 16px;
+    }
   }
 }
 .chargeDesc {
+  padding: 10px;
   background-color: @color-background-f;
+  line-height: 24px;
+  h3 {
+    font-size: @font-size-large;
+    font-weight: 500;
+  }
+  .timeTable {
+    margin-top: 10px;
+  }
+  .telDesc {
+    .promotion {
+      padding-left: 20px;
+      background-image: url('./youhui.png');
+      background-repeat: no-repeat;
+      background-size: 13px 12px;
+      background-position-y: center;
+    }
+    margin-top: 10px;
+  }
 }
