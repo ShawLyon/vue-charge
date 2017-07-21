@@ -5,7 +5,7 @@
         <router-link to="/listEleCar">
           <span class="">电动车</span>
         </router-link>
-        <router-link to="listSteamCar">
+        <router-link to="/listSteamCar">
           <span class="">汽车</span>
         </router-link>
       </div>
@@ -14,13 +14,13 @@
       </div>
     </div>
     <div class="listContent">
-        <router-view></router-view>
+      <router-view></router-view>
     </div>
   </div>
 </template>
 <script>
 import router from '../../router'
-import {mapMutations} from 'vuex'
+import { mapMutations } from 'vuex'
 export default {
   data() {
     return {
@@ -43,6 +43,7 @@ export default {
 }
 </script>
 <style lang="less">
+@import '~vux/src/styles/1px.less';
 @import '../../common/less/variable.less';
 @import './listCar.less';
 </style>

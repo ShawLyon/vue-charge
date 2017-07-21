@@ -68,6 +68,7 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+@import '~vux/src/styles/1px.less';
 @import '../../common/less/variable.less';
 @import './listSteamCar.less';
 </style>

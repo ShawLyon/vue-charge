@@ -1,6 +1,5 @@
 <template>
   <div class="chargeDetail">
-    <v-header></v-header>
     <div class="chargeType">
       <div class="type-l">
         <h3>{{ $route.params.name }}</h3>
@@ -51,8 +50,7 @@
   </div>
 </template>
  <script >
-import header from 'components/header/header'
-import {  XButton, Cell } from 'vux'
+import { XButton, Cell } from 'vux'
 import { mapState } from 'vuex'
 export default {
   data() {
@@ -72,15 +70,9 @@ export default {
     ...mapState([
       'chargeDesc',
       'tel'
-    ]),
-    ableUseCount(item) {
-      if (item.status == 1) {
-
-      }
-    }
+    ])
   },
   components: {
-    'v-header': header,
     XButton,
     Cell
   }

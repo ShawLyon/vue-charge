@@ -1,11 +1,10 @@
 <template>
   <div class="home">
-    <v-header></v-header>
     <x-header :left-options="{showBack: false}" class="hd-two">
       <tab :line-width=6 active-color='#4478ac' v-model="index">
         <tab-item class="vux-center" :selected="demo2 === item" v-for="(item, index) in list2" @click="demo2 = item" :key="index">{{item}}</tab-item>
       </tab>
-      <a slot="left" class="userIcon">
+      <a slot="left" class="userIcon" @click="goUserCentent">
         <i class="fa fa-user-circle-o" slot="overwrite-left"></i>
         <badge class="userBadge"></badge>
       </a>
@@ -35,8 +34,7 @@
 </template>
 <script>
 import router from 'router'
-import header from 'components/header/header'
-import listCar from 'components/listCar/listCar'
+import ListCar from 'components/listCar/listCar'
 import { XHeader, XButton, Actionsheet, TransferDom, Tab, TabItem, Badge, Swiper, SwiperItem } from 'vux'
 import { mapState, mapMutations } from 'vuex'
 
@@ -46,8 +44,7 @@ export default {
     TransferDom
   },
   components: {
-    'v-header': header,
-    'list-car': listCar,
+    ListCar,
     XHeader,
     XButton,
     Actionsheet,
@@ -78,8 +75,6 @@ export default {
       'chargeDesc',
       'fold'
     ])
-    
-
   },
   methods: {
     ...mapMutations([
@@ -87,6 +82,9 @@ export default {
     ]),
     toogleList() {
       this.TOOGLE_FOLD();
+    },
+    goUserCentent() {
+      this.$router.push('/login');
     }
 
   },

@@ -6,10 +6,12 @@ import router from './router'
 import store from './store'
 import App from './App'
 import VueScroller from 'vue-scroller'
+import wechatTitle from 'vue-wechat-title'
 import 'font-awesome/css/font-awesome.min.css'
 import 'common/less/index.less'
 
 Vue.use(VueScroller)
+Vue.use(wechatTitle)
 
 FastClick.attach(document.body)
 
