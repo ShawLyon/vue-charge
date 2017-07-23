@@ -18,9 +18,9 @@
     <div class="chargePort">
       <cell title="充电桩端口" :value="ableUse+'个能用'"></cell>
       <ul class="portList">
-        <li style="display: inline-block" class="item" v-for="(item,index) in chargeDesc" :class="[item.status==0 ? usedColor: maintainColor]">
+        <li style="display: inline-block" class="item" v-for="(item,index) in chargeDesc" :class="{'usedColor':item.status==='0','maintainColor':item.status==='1','idleColor':item.status==='2'}">
           <div class="index">{{index+1}}</div>
-          <div class="status">{{item.status}}</div>
+          <div class="status">{{item.status==='0' ? used : (item.status==='1' ? maintain : idle)}}</div>
         </li>
       </ul>
     </div>
@@ -55,22 +55,28 @@ import { mapState } from 'vuex'
 export default {
   data() {
     return {
+      idle: '闲置',
+      used: '使用中',
+      maintain: '维护',
       items: [
         { type: 1, status: '闲置' },
         { type: 2, status: '使用中' },
         { type: 3, status: '维护' }
       ],
-      ableUse: 9,
-      activeColor: '#4478ac',
-      usedColor: 'used',
-      maintainColor: 'maintain',
+
+      ableUse: 9
     }
   },
   computed: {
     ...mapState([
       'chargeDesc',
       'tel'
-    ])
+    ]),
+    activeClassColor() {
+      return {
+        activeColor: this.chargeDesc[index].status == 0,
+      }
+    }
   },
   components: {
     XButton,

@@ -31,27 +31,36 @@
       font-size: @font-size-large;
     }
     .portList {
-      .idle {
-        color: @color-background-x;
-      }
-      .used {
-        color: @color-background-s;
-      }
-      .maintain {
-        color: @color-background-w;
-      }
       .item {
-        margin: 10px;
+          margin: 10px;        
+          text-align: center;
+          font-size: @font-size-large;
+          .index {
+            padding: 0 30px;            
+          }
+          .status {
+            color: @font-color-6;
+          }        
+        }
+      .idleColor {
         border: 1px solid @color-background-x;
-        text-align: center;
-        font-size: @font-size-large;
         .index {
-          padding: 0 30px;
           color: @font-color;
           background-color: @color-background-x;
         }
-        .status {
-          color: @font-color-a;
+      }
+      .usedColor {
+        border: 1px solid @color-background-s;
+        .index {
+          color: @font-color-6;
+          background-color: @color-background-s;
+        }
+      }
+      .maintainColor {
+        border: 1px solid @color-background-w;
+        .index {
+          color: @font-color;
+          background-color: @color-background-w;
         }
       }
       
