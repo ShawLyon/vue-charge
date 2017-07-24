@@ -17,7 +17,6 @@
           <div class="item-ft">
             <div class="foot-l">
               <p>￥{{item.price}}元/小时</p>
-              <p>{{item.promotion}}</p>
             </div>
             <div class="foot-r">
               <x-button mini class="navBtn" plain>导航</x-button>

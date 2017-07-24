@@ -11,7 +11,7 @@
         </x-input>
         <x-button class="register-btn">注册</x-button>
         <div class="register-footer">
-          <router-link to="/login">
+          <router-link to="/login" tag="span">
             <span>立即登录</span>
           </router-link>
         </div>

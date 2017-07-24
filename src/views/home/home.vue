@@ -8,8 +8,9 @@
         <i class="fa fa-user-circle-o" slot="overwrite-left"></i>
         <badge class="userBadge"></badge>
       </a>
-      <a slot="right" @click="toogleList">
+      <a slot="right" @click="toogleList" class="meun">
         <i class="fa fa-list-ul" slot="overwrite-left"></i>
+        <span class="meun-text">找桩</span>
       </a>
     </x-header>
     
@@ -22,7 +23,7 @@
     </div>
     
 
-    <transition name="fade">
+    <transition name="chargelist">
       <list-car v-if="listShow"></list-car>    
     </transition>
     <!--蒙板  -->
@@ -93,7 +94,7 @@ export default {
   }
 }
 </script>
-<style lang="less" scoped>
+<style lang="less">
 @import '~vux/src/styles/1px.less';
 @import './home.less';
 @import '~common/less/variable.less';

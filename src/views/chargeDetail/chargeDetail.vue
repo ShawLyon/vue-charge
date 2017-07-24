@@ -43,7 +43,6 @@
         </p>
       </div>
       <div class="telDesc">
-        <p class="promotion">{{$route.params.promotion}}</p>
         <p>联系电话: {{tel}}</p>
       </div>
     </div>
@@ -58,12 +57,6 @@ export default {
       idle: '闲置',
       used: '使用中',
       maintain: '维护',
-      items: [
-        { type: 1, status: '闲置' },
-        { type: 2, status: '使用中' },
-        { type: 3, status: '维护' }
-      ],
-
       ableUse: 9
     }
   },

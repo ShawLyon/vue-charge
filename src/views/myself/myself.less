@@ -1,0 +1,37 @@
+.myself {
+  .header {
+    display: flex;
+    -webkit-display: flex;
+    padding: 15px;
+    background-color: #fff;
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+    .head-portrait {
+      & img {
+        border-radius: 50%;
+      } 
+    }
+    .head-info {
+      margin-left: 20px;
+      line-height: 22px;
+      & span {
+        display: block;
+      }
+      span.username {
+        font-size: @font-size-medium-x;
+      }
+      span.tel {
+        font-size: @font-size-small;
+        color: @font-color-6;
+      }
+    }
+  }
+ 
+  .router-slid-enter-active, .router-slid-leave-active {
+      transition: all .4s;
+  }
+  .router-slid-enter, .router-slid-leave-active {
+      transform: translate3d(2rem, 0, 0);
+      opacity: 0;
+  }
+}

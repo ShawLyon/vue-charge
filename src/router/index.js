@@ -4,6 +4,9 @@ import home from '@/views/home/home'
 import chargeDetail from '@/views/chargeDetail/chargeDetail'
 import login from '@/views/login/login'
 import register from '@/views/register/register'
+import myself from '@/views/myself/myself'
+import myinfo from '@/views/myinfo/myinfo'
+import setnickname from '@/views/setnickname/setnickname'
 import forgetPwdStep1 from '@/views/forgetPwdStep1/forgetPwdStep1'
 import forgetPwdStep2 from '@/views/forgetPwdStep2/forgetPwdStep2'
 // import mapEleCar from '@/components/mapEleCar/mapEleCar' import mapSteamCar
@@ -75,6 +78,17 @@ const router = new Router({
       meta: {
         title: '修改登录密码'
       }
+    },
+    {
+      path: '/myself',
+      component: myself,
+      meta: {
+        title: '我的'
+      },
+      children: [
+        {path: 'myinfo', component: myinfo},
+        {path: 'setnickname',component: setnickname}
+      ]
     }
   ]
 })

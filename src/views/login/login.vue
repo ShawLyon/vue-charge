@@ -10,10 +10,10 @@
         </x-input>
         <x-button class="login-btn" @click.native="goLogin">登录</x-button>
         <div class="login-footer">
-          <router-link to="/register">
+          <router-link to="/register" tag="span">
             <span >立即注册</span>
           </router-link>
-          <router-link to="/forgetPwdStep1">
+          <router-link to="/forgetPwdStep1" tag="span">
             <span>忘记密码</span>
           </router-link>
         </div>
@@ -23,6 +23,7 @@
   </div>
 </template>
 <script>
+import router from 'router'
 import { Group, XInput, XButton } from 'vux'
 export default {
   components: {
@@ -37,7 +38,7 @@ export default {
   },
   methods: {
     goLogin() {
-      alert('denglu')
+      router.push('/myself');
     }
   }
 }
