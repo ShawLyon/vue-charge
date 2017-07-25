@@ -12,7 +12,7 @@
       </header>
     </router-link>
     <group>
-      <cell title="充电记录" is-link link="/login">
+      <cell title="充电记录" is-link link="/mycharge">
         <img src="./chongdian_jilu.png" width="18" style="display:block;margin-right:12px;" slot="icon"></img>
       </cell>
       <cell title="充值记录" is-link>

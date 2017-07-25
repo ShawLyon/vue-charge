@@ -1,15 +1,17 @@
 <template>
   <div class="setnickname">
-    <group>
-      <x-input placeholder="请输入用户名" v-model="nickname" min="4" max="14">
-      </x-input>
-    </group>
-    <p style="padding: 10px 15px; color: #666;">4-14个字符，由中英文组合</p>
-    <x-button>确认修改</x-button>
+    <div class="setnick-wrapper">
+      <group>
+        <x-input placeholder="请输入用户名" v-model="nickname" min="4" max="14">
+        </x-input>
+      </group>
+      <p style="padding: 10px 15px; color: #666;">4-14个字符，由中英文组合</p>
+      <x-button class="setnickname-btn">确认修改</x-button>
+    </div>
   </div>
 </template>
 <script>
-import { XInput, Group,XButton  } from 'vux'
+import { XInput, Group, XButton } from 'vux'
 export default {
   data() {
     return {
@@ -19,7 +21,7 @@ export default {
   components: {
     XInput,
     Group,
-    XButton 
+    XButton
   }
 }
 </script>

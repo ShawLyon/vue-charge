@@ -1,12 +1,5 @@
 <template>
   <div class="myinfo">
-    <!-- <group>
-                  <cell title="头像" is-link link="" :border-intent="false">
-                    <img src="https://unsplash.it/300/200/?random" width="45px" height="45px" style="border-radius: 50%;" slot="default">
-                  </cell>
-                    <input type="file">
-                  <cell title="昵称" is-link link="/myself/setnickname" :border-intent="false" :value="nickname" @click.native="changeNickname"></cell>
-                </group> -->
     <section class="headportrait">
       <input type="file" class="myinfo-nickname-upload" @change="uploadAvatar">
       <h2>头像</h2>

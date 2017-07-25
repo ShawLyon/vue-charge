@@ -1,0 +1,94 @@
+.historyDesc {
+  display: block;
+  position: absolute;
+  background-color: #f3f3f3;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+  h3 {
+    font-size: 1.4rem;
+  }
+  ul {
+    margin-top: .5rem;
+  }
+  li.li-item {
+    display: flex;
+    justify-content: space-between;
+  }
+  .group {
+    background-color: #fff;
+    margin-top: 1rem;
+    padding: 1rem;
+   
+  }
+  .group-top {
+    height: 6rem;
+    line-height: 6rem;
+    padding: 0 1rem;
+  }
+  .group-user-info {
+    line-height: 1.8rem;
+  }
+  .group-charge-time {
+    li {
+      line-height: 1.8rem;
+    }
+    .charge-time-chart {
+      .chart-top {
+        text-align: center;
+        font-size: 1.1rem;
+      }
+      .chart-main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0;
+        .chart-line {
+          position: relative;
+          display: inline-block;
+          width: 9.5rem;
+          height: 4px;
+          background-color: @color-theme;
+        }
+        span {
+          display: inline-block;
+          width: 3rem;
+          height: 3rem;
+          line-height: 3rem;
+          border-radius: 50%;
+          background-color: @color-theme;
+          color: #fff;
+          text-align: center;
+          font-size: 1rem;
+        }
+      }
+      .chart-bottom {
+        display: flex;
+        justify-content: space-around;
+        b,em {
+          display: block;
+          text-align: center;
+        }
+        span {
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+  footer {
+    position: relative;
+    padding: 1rem;
+    height: 4.5rem;
+    span {
+      font-size: .85rem;
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      i {
+        margin-right: .6rem;
+      }
+    }
+  }
+}

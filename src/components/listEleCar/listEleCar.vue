@@ -42,10 +42,9 @@ export default {
   },
   methods: {
     ...mapMutations([
-      'SET_TITLE_TEXT'
+
     ]),
     jumpDetail(index) {
-      this.SET_TITLE_TEXT('充电桩详情');
       let activeCharge = this.chargeDesc[index];
       this.$router.push({
         name: 'chargeDetail', params: {

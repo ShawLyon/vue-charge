@@ -1,0 +1,36 @@
+.chargehistory {
+  .group {
+    span {
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+    }
+    li:nth-child(1) {
+      margin-top: 0;
+    }
+    li {
+      padding: .9rem;
+      background-color: #fff;
+      margin-top: 1.2rem;
+    }
+    .li-bottom {
+      display: flex;
+      justify-content: space-between;
+      span:nth-last-child(1) {
+      }
+      em {
+        margin-left: 1rem;
+      }
+      strong {
+        font-size: 2rem;
+        margin-right: .2rem;
+      }
+    }
+  }
+  .router-slid-enter-active, .router-slid-leave-active {
+      transition: all .4s;
+  }
+  .router-slid-enter, .router-slid-leave-active {
+      transform: translate3d(2rem, 0, 0);
+      opacity: 0;
+  }
+}

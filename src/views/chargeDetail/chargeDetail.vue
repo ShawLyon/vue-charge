@@ -64,12 +64,7 @@ export default {
     ...mapState([
       'chargeDesc',
       'tel'
-    ]),
-    activeClassColor() {
-      return {
-        activeColor: this.chargeDesc[index].status == 0,
-      }
-    }
+    ])
   },
   components: {
     XButton,
