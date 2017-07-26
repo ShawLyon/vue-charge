@@ -49,9 +49,6 @@
         <img src="./shezhi.png" width="18" style="display:block;margin-right:12px;" slot="icon"></img>
       </cell>
     </group>
-    <transition name="router-slid" mode="out-in">
-      <router-view></router-view>
-    </transition>
   </div>
 </template>
 <script>

@@ -13,7 +13,7 @@
         </span>
       </div>
     </section>
-    <router-link to="/myself/setnickname" tag="div">
+    <router-link to="/myself/myinfo/setnickname" tag="div">
       <section class="nickname">
         <h2>昵称</h2>
         <div class="nickname-div">
@@ -26,6 +26,9 @@
         </div>
       </section>
     </router-link>
+    <transition name="router-slid" mode="out-in">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 <script>

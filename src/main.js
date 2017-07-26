@@ -9,13 +9,21 @@ import VueScroller from 'vue-scroller'
 import wechatTitle from 'vue-wechat-title'
 import 'font-awesome/css/font-awesome.min.css'
 import 'common/less/index.less'
+import {ConfirmPlugin} from 'vux'
+import vueg from 'vueg'
+import 'vueg/css/transition-min.css'
 
+Vue.use(vueg,router)
+Vue.use(ConfirmPlugin)
 Vue.use(VueScroller)
 Vue.use(wechatTitle)
 
 FastClick.attach(document.body)
 
 Vue.config.productionTip = false
+/* router切换动画 */
+
+
 
 /* eslint-disable no-new */
 new Vue({

@@ -2,7 +2,7 @@
   <div class="chargehistory">
     <ul class="group">
       <li v-for="(item,index) in chargeDesc">
-        <router-link to="/chargehistory/historyDesc" tag="div">
+        <router-link :to="{ path: '/chargehistory/historyDesc'}" tag="div" >
           <div class="li-top">
             <span>2017-06-04</span>
             <span>09:30</span>
@@ -17,9 +17,6 @@
         </router-link>
       </li>
     </ul>
-    <transition name="router-slid" mode="out-in">
-      <router-view></router-view>
-    </transition>
   </div>
 </template>
 <script>

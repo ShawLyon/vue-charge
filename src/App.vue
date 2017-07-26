@@ -1,7 +1,10 @@
 <template>
   <div id="app">
-    <!-- <router-view ></router-view> -->
-    <router-view v-wechat-title="$route.meta.title"></router-view>
+    <!-- <router-view v-wechat-title="$route.meta.title"></router-view> -->
+    <transition >
+      <router-view  v-wechat-title="$route.meta.title" class="set-height"></router-view>
+    </transition>
+  
   </div>
 </template>
 
@@ -16,5 +19,8 @@ export default {
 
 body {
   background-color: #fbf9fe;
+}
+.set-height {
+  min-height:100vh
 }
 </style>

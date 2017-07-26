@@ -1,3 +1,3 @@
 
 export const TOOGLE_FOLD = 'TOOGLE_FOLD';
-export const SET_TITLE_TEXT = 'SET_TITLE_TEXT';
+export const RESET_NAME = 'RESET_NAME';

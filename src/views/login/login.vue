@@ -5,10 +5,11 @@
     </div>
     <div class="login">
       <group class="form-wrapper">
-        <x-input type="tel" is-type="china-mobile" placeholder="请输入手机号" class="l-input"></x-input>
-        <x-input type="password" is-type="china-mobile" placeholder="请输入密码" class="l-input">
-        </x-input>
-        <x-button class="login-btn" @click.native="goLogin">登录</x-button>
+        <form class="loginForm">
+          <x-input type="tel" is-type="china-mobile" placeholder="请输入手机号" class="l-input" v-model="userAccount"></x-input>
+          <x-input type="password" is-type="china-mobile" placeholder="请输入密码" class="l-input" v-model="passWord"></x-input>
+        </form>
+        <x-button class="login-btn" @click.native="mobileLogin">登录</x-button>
         <div class="login-footer">
           <router-link to="/register" tag="span">
             <span>立即注册</span>
@@ -25,6 +26,7 @@
 <script>
 import router from 'router'
 import { Group, XInput, XButton } from 'vux'
+import {accountLogin} from '../../service/getData'
 export default {
   components: {
     Group,
@@ -33,12 +35,16 @@ export default {
   },
   data() {
     return {
-
+      userAccount: '', //用户名
+      passWord: '',
+      userInfo: '' //获取到的用户信息
     }
   },
   methods: {
-    goLogin() {
-      router.push('/myself');
+     mobileLogin() {
+      
+      // router.go(1);
+      // router.push('/myself');
     }
   }
 }

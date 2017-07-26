@@ -9,6 +9,7 @@ import register from '@/views/register/register'
 import myself from '@/views/myself/myself'
 import myinfo from '@/views/myinfo/myinfo'
 import mycharge from '@/views/mycharge/mycharge'
+import stopCharge from '@/views/mycharge/children/stopCharge'
 import setnickname from '@/views/setnickname/setnickname'
 import forgetPwdStep1 from '@/views/forgetPwdStep1/forgetPwdStep1'
 import forgetPwdStep2 from '@/views/forgetPwdStep2/forgetPwdStep2'
@@ -18,6 +19,8 @@ import listEleCar from '@/components/listEleCar/listEleCar'
 import listSteamCar from '@/components/listSteamCar/listSteamCar'
 
 Vue.use(Router)
+
+// 动画
 
 const router = new Router({
   routes: [
@@ -82,11 +85,12 @@ const router = new Router({
       meta: {
         title: '我的'
       },
+      
+    }, {
+      path: '/myself/myinfo',
+      component: myinfo,
       children: [
         {
-          path: 'myinfo',
-          component: myinfo
-        }, {
           path: 'setnickname',
           component: setnickname
         }
@@ -98,17 +102,20 @@ const router = new Router({
         title: '我的充电'
       }
     }, {
+      path: '/mycharge/stopCharge',
+      component: stopCharge,
+      meta: {
+        title: '停止充电原因'
+      }
+    }, {
       path: '/chargehistory',
       component: chargehistory,
       meta: {
         title: '充电记录'
-      },
-      children: [
-        {
-          path: 'historyDesc',
-          component: historyDesc
-        }
-      ]
+      }
+    }, {
+      path: '/chargehistory/historyDesc',
+      component: historyDesc
     }
   ]
 })
