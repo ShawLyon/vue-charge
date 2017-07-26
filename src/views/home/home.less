@@ -1,59 +1,66 @@
   body {
-    background-color: #666;
+      background-color: #666;
   }
   .home {
-    .hd-two {
-      // height: 44px;
-      background-color: #fff;
-      margin-bottom: 10px;
-      .vux-header .vux-header-title, .vux-header h1 {
-        height: 44px;
+      .hd-two {
+          // height: 44px;
+          background-color: #fff;
+          margin-bottom: 10px;
+          .vux-header .vux-header-title,
+          .vux-header h1 {
+              height: 44px;
+          }
+          .fa-user-circle-o,
+          .fa-list-ul {
+              font-size: 36px;
+              color: #262930;
+          }
+          .fa-list-ul {
+              font-size: 20px;
+          }
+          .userIcon {
+              position: relative;
+              .userBadge {
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+              }
+          }
+          .meun {
+              text-align: center;
+              .meun-text {
+                  display: block;
+              }
+          }
       }
-      .fa-user-circle-o,.fa-list-ul {
-        font-size: 36px;
-        color: #262930;
-      }
-      .fa-list-ul {
-        font-size: 20px;
-      }
-      .userIcon {
-        position: relative;
-        .userBadge {
+      .list-mask {
           position: absolute;
           top: 0;
-          right: 0;
-        }
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, .5);
+          z-index: 10;
       }
-      .meun {
-        text-align: center;
-        .meun-text {
-          display: block;
-        }
+      .fade-enter-active,
+      .fade-leave-active {
+          transition: opacity .5s
       }
-    }
-    .list-mask {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, .5);
-      z-index: 10;
-    }
-    .fade-enter-active, .fade-leave-active {
-      transition: opacity .5s
-    }
-    .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
-      opacity: 0
-    }
-    .chargelist-enter-active, .chargelist-leave-active {
-        transition: all .3s ease-out;
-    }
-    .chargelist-enter, .chargelist-leave-active {
-        transform: translateY(100%);
-    }
-    .tab-swiper {
-      background-color: #fff;
-      height: 100px;
-    }
+      .fade-enter,
+      .fade-leave-to/* .fade-leave-active in <2.1.8 */
+      {
+          opacity: 0
+      }
+      .chargelist-enter-active,
+      .chargelist-leave-active {
+          transition: all .3s ease-out;
+      }
+      .chargelist-enter,
+      .chargelist-leave-active {
+          transform: translateY(100%);
+      }
+      .tab-swiper {
+          background-color: #fff;
+          height: 100px;
+      }
   }
