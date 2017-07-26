@@ -20,13 +20,12 @@
         </div>
       </group>
     </div>
-  
   </div>
 </template>
 <script>
 import router from 'router'
 import { Group, XInput, XButton } from 'vux'
-import {accountLogin} from '../../service/getData'
+import { accountLogin } from '../../service/getData'
 export default {
   components: {
     Group,
@@ -41,8 +40,8 @@ export default {
     }
   },
   methods: {
-     mobileLogin() {
-      
+    mobileLogin() {
+
       // router.go(1);
       // router.push('/myself');
     }
