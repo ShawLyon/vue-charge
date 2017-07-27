@@ -1,17 +1,16 @@
-
 .mycharge {
   h3 {
     font-size: 1.2rem;
   }
   span {
-      display: block;
-      line-height: 1.9rem;
-      font-size: 1rem;
-    }
-  .group:nth-of-type(1){
+    display: block;
+    line-height: 1.9rem;
+    font-size: 1rem;
+  }
+  .group:nth-of-type(1) {
     margin-top: 0;
   }
-  .group:nth-last-of-type(1)  {
+  .group:nth-last-of-type(1) {
     margin-bottom: 3.5rem;
   }
   .group {
@@ -47,11 +46,11 @@
         border-radius: .4rem;
         margin: 1.4rem 1.2rem 0;
       }
-      .stopCharge {  
+      .stopCharge-btn {
         background-color: @color-theme;
         color: #fff;
       }
-      .addCharge {
+      .addCharge-btn {
         border: 1px solid #000;
         background-color: #fff;
         color: #333;
@@ -68,13 +67,15 @@
     background-color: @color-theme;
     color: #fff;
     text-align: center;
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
   }
-  .router-slid-enter-active, .router-slid-leave-active {
+  .router-slid-enter-active,
+  .router-slid-leave-active {
     transition: all .4s;
   }
-  .router-slid-enter, .router-slid-leave-active {
-      transform: translate3d(2rem, 0, 0);
-      opacity: 0;
+  .router-slid-enter,
+  .router-slid-leave-active {
+    transform: translate3d(2rem, 0, 0);
+    opacity: 0;
   }
 }

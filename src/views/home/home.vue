@@ -13,18 +13,17 @@
         <span class="meun-text">找桩</span>
       </a>
     </x-header>
-    
+  
     <div class="mapContent">
-     <swiper v-model="index" height="100px" :show-dots="false" >
+      <swiper v-model="index" height="100px" :show-dots="false">
         <swiper-item v-for="(item, index) in list2" :key="index">
           <div class="tab-swiper vux-center">{{item}} Container</div>
         </swiper-item>
       </swiper>
     </div>
-    
-
+  
     <transition name="chargelist">
-      <list-car v-if="listShow"></list-car>    
+      <list-car v-if="listShow"></list-car>
     </transition>
     <!--蒙板  -->
     <transition name="fade">
@@ -53,7 +52,7 @@ export default {
     Tab,
     TabItem,
     Badge,
-    Swiper, 
+    Swiper,
     SwiperItem
   },
   data() {
@@ -65,7 +64,7 @@ export default {
         menu1: 'Take Photo',
         menu2: 'Choose from photos'
       },
-      showMenus: false,    
+      showMenus: false,
     }
   },
   computed: {

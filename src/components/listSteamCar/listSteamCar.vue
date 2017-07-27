@@ -1,6 +1,6 @@
 <template>
   <div class="listSteamCar">
-    <scroller :on-refresh="refresh" :on-infinite="infinite" height="100%">
+    <scroller :on-refresh="refresh" :on-infinite="infinite" >
       <ul class="listMain">
         <li class="main-item" v-for="(item,index) in chargeDesc" v-show="item.car=='0'">
           <div class="item-hd" @click="jumpDetail(index)">
