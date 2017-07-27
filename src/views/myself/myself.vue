@@ -12,7 +12,7 @@
       </header>
     </router-link>
     <group>
-      <cell title="充电记录" is-link link="/mycharge">
+      <cell title="充电记录" is-link link="/mycharge" @click.native="goRouter">
         <img src="./chongdian_jilu.png" width="18" style="display:block;margin-right:12px;" slot="icon"></img>
       </cell>
       <cell title="充值记录" is-link>
@@ -52,11 +52,17 @@
   </div>
 </template>
 <script>
+import router from 'router'
 import { Group, Cell } from 'vux'
 export default {
   components: {
     Group,
     Cell
+  },
+  methods: {
+    goRouter() {
+      router.go(1);
+    }
   }
 }
 </script>
