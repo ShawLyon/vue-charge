@@ -31,7 +31,6 @@
       </ul>
     </section>
     <footer class="footer">
-      <router-link to=""></router-link>
       <x-button class="enter-btn">确定</x-button>
     </footer>
   </div>
@@ -51,9 +50,6 @@ export default {
     XTextarea,
     XButton
   },
-  created: {
-
-  },
   methods: {
     showTextInput() {
       this.show = true;
@@ -64,9 +60,6 @@ export default {
     change(value) {
       console.log('change:', value);
     }
-  },
-  computed: {
-
   }
 }
 </script>

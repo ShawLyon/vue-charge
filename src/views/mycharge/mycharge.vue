@@ -27,15 +27,22 @@
         <div>
           <span>充电位置:{{address}}</span>
         </div>
-        <button class="stopCharge" @click="stopCharge">停止充电</button>
-        <button class="addCharge" @click="addCharge">增加充电时间</button>
+        <button class="stopCharge-btn" @click="stopCharge">停止充电</button>
+        <button class="addCharge-btn" @click="showChargeModel">增加充电时间</button>
       </section>
     </section>
+    <!--model框  -->
+    <bg-model v-show="showModel" @click.native="hideModel"></bg-model>
+    <!-- 添加充电时间弹框 -->
+    <add-charge v-if="showModel" :show="show" @hide-model="hideModel">
+    </add-charge>
     <router-link to="/chargehistory" class="charge-history" tag="div">历史充电记录</router-link>
   </div>
 </template>
 <script>
 import router from 'router'
+import AddCharge from 'components/addCharge/addCharge'
+import BgModel from 'components/bgModel/bgModel'
 import { Group, XButton } from 'vux'
 import { mapState } from 'vuex'
 export default {
@@ -48,20 +55,30 @@ export default {
       chargeAmount: '20',  // 已充电量
       chargeDevice: '222222', // 充电设备编号
       devicePort: '4', // 充电设备端口
-      address: '深圳宝安黄麻布村89号'
+      address: '深圳宝安黄麻布村89号',
+      show: false,
+      payShow: false
     }
   },
   components: {
     Group,
     XButton,
-
+    AddCharge,
+    BgModel
   },
   computed: {
     ...mapState([
       'chargeDesc'
-    ])
+    ]),
+    showModel() {
+      return this.show;
+    },
   },
   methods: {
+    
+    alertPay() {
+      this.payShow = !this.payShow;
+    },
     onShow() {
 
     },
@@ -86,13 +103,16 @@ export default {
         }
       })
     },
-    addCharge() {
-      alert(2828)
+    showChargeModel() {
+      this.show = !this.show;
+    },
+    hideModel() {
+      this.show = !this.show;
     }
   }
 }
 </script>
-<style lang="less">
+<style lang="less" scoped>
 @import './mycharge.less';
 @import '../../common/less/variable.less';
 </style>

@@ -42,9 +42,8 @@ export default {
   },
   methods: {
      mobileLogin() {
-      
-      // router.go(1);
-      // router.push('/myself');
+      router.go(1);
+      router.push('/myself');
     }
   }
 }
