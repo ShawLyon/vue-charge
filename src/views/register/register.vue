@@ -9,7 +9,7 @@
         <x-input type="text" is-type="" v-model="pwd" placeholder="请输入验证码" class="l-input">
           <x-button slot="right" mini @click.native="getCode">获取验证码</x-button>
         </x-input>
-        <x-button class="register-btn">注册</x-button>
+        <x-button class="register-btn" @click.native="goRegister">注册</x-button>
         <div class="register-footer">
           <router-link to="/login" tag="span">
             <span>立即登录</span>
@@ -30,6 +30,9 @@ export default {
   methods: {
     getCode() {
       alert('getcode')
+    },
+    goRegister() {
+      alert('注册成功')
     }
   }
 }

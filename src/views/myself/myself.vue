@@ -12,13 +12,13 @@
       </header>
     </router-link>
     <group>
-      <cell title="充电记录" is-link link="/mycharge" @click.native="goRouter">
+      <cell title="充电记录" is-link link="/myself/mycharge" @click.native="goRouter">
         <img src="./chongdian_jilu.png" width="18" style="display:block;margin-right:12px;" slot="icon"></img>
       </cell>
-      <cell title="充值记录" is-link>
+      <cell title="充值记录" is-link link="/myself/chargeRecord">
         <img src="./chongzhi_jilu.png" width="18" style="display:block;margin-right:12px;" slot="icon"></img>
       </cell>
-      <cell title="钱包" is-link>
+      <cell title="钱包" is-link link="/myself/myWallet">
         <img src="./qianbao.png" width="18" style="display:block;margin-right:12px;" slot="icon"></img>
       </cell>
       <cell title="现金券" is-link>

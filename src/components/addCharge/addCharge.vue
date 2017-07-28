@@ -12,11 +12,11 @@
       </div>
       <div class="add-main-cell">
         <cell title="充电端口:" :value="chargeport" @click.native="onClick"></cell>
-        <x-number title="充电时间(小时)" v-model="chargetime" step="0.5" min="0.5"></x-number>
+        <x-number title="充电时间(小时)" v-model="chargetime" :step="0.5" :min="0.5"></x-number>
         </group>
       </div>
       <div class="add-main-bottom">
-        <x-button class="submit-btn" @click.native="nextStep('充电支付','确认支付')">{{btnText}}</x-button>
+        <x-button class="submit-btn" @click.native="nextStep('充电支付')">{{btnText}}</x-button>
       </div>
     </section>
     <section class="add-main step-two" v-else>
@@ -65,15 +65,9 @@ export default {
       payCost: '100',
       stepShow: true,
       payWay: 1, //默认余额支付
-      myShow: this.show
-    }
-  },
-  watch: {
-    show(val) {
-      this.myShow = val;
-    },
-    myShow(val) {
-      this.$emit('hide-model', val);
+      // chargetime: '',
+      numberStep: 0.5,
+      numberMin: 0.5
     }
   },
   components: {
@@ -84,7 +78,7 @@ export default {
     Radio
   },
   methods: {
-    nextStep(title, text) {
+    nextStep(title) {
       this.stepShow = !this.stepShow;
       this.title = title;
     },
@@ -92,12 +86,8 @@ export default {
       this.payWay == 1 ? alert('余额支付') : alert('微信支付')
     },
     hideModel() {
-     this.$emit('update:newShow', false)  // 父子组件双向绑定，点击将false传到父组件，改变父组件status
+     this.$emit('update:show', false)  // 父子组件双向绑定，点击将false传到父组件，改变父组件status
     }
-  },
-
-  computed: {
-
   }
 }
 </script>

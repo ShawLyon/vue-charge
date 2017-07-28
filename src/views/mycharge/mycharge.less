@@ -78,4 +78,23 @@
     transform: translate3d(2rem, 0, 0);
     opacity: 0;
   }
+  /* 上拉下拉 */
+  .chargelist-enter-active,
+  .chargelist-leave-active {
+    transition: all .3s ease-out;
+  }
+  .chargelist-enter,
+  .chargelist-leave-active {
+    transform: translateY(100%);
+  }
+  /* 渐入渐出 */
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity .5s
+  }
+  .fade-enter,
+  .fade-leave-to/* .fade-leave-active in <2.1.8 */
+  {
+    opacity: 0
+  }
 }

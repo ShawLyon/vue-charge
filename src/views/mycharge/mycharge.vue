@@ -32,9 +32,13 @@
       </section>
     </section>
     <!--model框  -->
-    <bg-model v-show="showModel" @click.native="hideModel"></bg-model>
-    <!-- 添加充电时间弹框 -->
-    <add-charge v-if="show" :show.sync="newShow"></add-charge>
+    <transition name="fade">
+      <bg-model v-show="showModel" @click.native="hideModel"></bg-model>
+    </transition>
+    <!-- 添加充电 时间弹框 -->
+    <transition name="chargelist">
+      <add-charge v-if="show" :show.sync="show"></add-charge>
+    </transition>
     <router-link to="/chargehistory" class="charge-history" tag="div">历史充电记录</router-link>
   </div>
 </template>
@@ -56,6 +60,7 @@ export default {
       devicePort: '4', // 充电设备端口
       address: '深圳宝安黄麻布村89号',
       show: false
+
     }
   },
   components: {
@@ -73,8 +78,8 @@ export default {
     },
   },
   methods: {
-    
-    
+
+
     onShow() {
 
     },
@@ -94,7 +99,7 @@ export default {
           console.log('plugin cancel')
         },
         onConfirm() {
-          router.push('/mycharge/stopCharge')
+          router.push('/myself/mycharge/stopCharge')
           // console.log('plugin confirm')
         }
       })
