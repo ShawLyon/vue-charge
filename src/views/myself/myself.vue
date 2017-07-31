@@ -21,31 +21,31 @@
       <cell title="钱包" is-link link="/myself/myWallet">
         <img src="./qianbao.png" width="18" style="display:block;margin-right:12px;" slot="icon"></img>
       </cell>
-      <cell title="现金券" is-link>
+      <cell title="现金券" is-link link="/myself/cash">
         <img src="./xianjinquan.png" width="18" style="display:block;margin-right:12px;" slot="icon"></img>
       </cell>
     </group>
     <group>
-      <cell title="电卡充值" is-link>
+      <cell title="电卡充值" is-link link="/myself/cardCharge">
         <img src="./dianka_chongzhi.png" width="18" style="display:block;margin-right:12px;" slot="icon"></img>
       </cell>
-      <cell title="电卡挂失解挂" is-link>
+      <cell title="电卡挂失解挂" is-link link="/myself/cardLoss">
         <img src="./guashi.png" width="18" style="display:block;margin-right:12px;" slot="icon"></img>
       </cell>
     </group>
     <group>
-      <cell title="商务合作" is-link>
+      <cell title="商务合作" is-link link="/myself/busineCooper">
         <img src="./dianka_chongzhi.png" width="18" style="display:block;margin-right:12px;" slot="icon"></img>
       </cell>
-      <cell title="消息" is-link>
+      <cell title="消息" is-link link="/myself/news">
         <img src="./xiaoxi.png" width="18" style="display:block;margin-right:12px;" slot="icon"></img>
       </cell>
-      <cell title="使用帮助">
+      <cell title="使用帮助"  is-link link="/myself/useHelp">
         <img src="./shiyong_bangzhu.png" width="18" style="display:block;margin-right:12px;" slot="icon"></img>
       </cell>
     </group>
     <group>
-      <cell title="设置" is-link>
+      <cell title="设置" is-link link="/myself/useHelp">
         <img src="./shezhi.png" width="18" style="display:block;margin-right:12px;" slot="icon"></img>
       </cell>
     </group>

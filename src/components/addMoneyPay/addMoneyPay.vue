@@ -24,7 +24,7 @@
         </section>
       </div>
       <div class="add-main-bottom">
-        <x-button class="submit-btn" @click.native="submitPay">确认支付{{itemSelect}}元</x-button>
+        <x-button class="submit-btn" @click.native="submitPay">确认支付{{selectMoney}}元</x-button>
       </div>
     </section>
   </div>
@@ -33,7 +33,7 @@
 import { XButton } from 'vux'
 export default {
   
-  props: ['itemSelect'], // 选择充值的金额
+  props: ['itemSelect','selectMoney'], // 选择充值的金额
   data() {
     return {
       title: '充值支付',
@@ -45,12 +45,8 @@ export default {
 
   },
   methods: {
-    nextStep(title) {
-      this.stepShow = !this.stepShow;
-      this.title = title;
-    },
     submitPay() {
-      alert(this.itemSelect)
+      alert(this.selectMoney)
       // this.payWay == 1 ? alert('余额支付') : alert('微信支付')
     },
     hideModel() {

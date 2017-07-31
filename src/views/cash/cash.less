@@ -1,0 +1,108 @@
+.cash {
+  .tab-bar {
+    height: 100%;
+  }
+  .expired {
+    height: 100%;
+    
+  }
+  .allList {
+    height: 100%;
+    font-size: .7rem;
+    padding: 1rem 1rem 1rem 0;
+    .item {
+      position: relative;
+      padding: 1rem 0 1.5rem 1.5rem;
+      color: #fff;
+      .item-top {
+        display: flex;
+        justify-content: space-around;
+      }
+      .item-top-l {
+        em:nth-child(1) {
+          vertical-align: top;
+          font-size: 2rem;
+        }
+        em:nth-child(2) {
+          font-weight: 700;
+          font-size: 5rem;
+        }
+      }
+      .item-top-r {
+        display: flex;
+        flex-direction: column;
+        em {
+          line-height: 1.6rem;
+        }
+        em:nth-child(1) {
+          strong {
+            padding: .6rem;
+            font-size: 2rem;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+    .ul-one {
+      .item-10 {
+        background: url('./red_quan.png');
+        background-size: 100% 100%;
+      }
+      .item-5 {
+        background: url('./blue_quan.png');
+        background-size: 100% 100%;
+      }
+    }
+    .ul-two {
+      .item-10 {
+        background: url('./yishiyong_bg.png');
+        background-size: 100% 100%;
+      }
+      .item-5 {
+        background: url('./yishiyong_bg.png');
+        background-size: 100% 100%;
+      }
+      .stamp {
+        width: 5rem;
+        height: 5rem;
+        position: absolute;
+        top: .5rem;
+        right: .5rem;
+      }
+    }
+    .ul-three {
+      .item-10 {
+        background: url('./yiguoqi_bg.png');
+        background-size: 100% 100%;
+      }
+      .item-5 {
+        background: url('./yiguoqi_bg.png');
+        background-size: 100% 100%;
+      }
+      .stamp {
+        width: 5rem;
+        height: 5rem;
+        position: absolute;
+        top: .5rem;
+        right: .5rem;
+      }
+    }
+    .no-expired {
+      text-align: center;
+      margin-top: 12rem;
+      img{
+        width: 6rem;
+        height: 4rem;
+      }
+      span {
+        display: block;
+        color: #999;
+        font-size: 1.2rem;
+        margin-top: 2rem;
+      }
+      // width: 100%;
+      // height: 39.6rem;
+      // background: url('./quan.png') no-repeat center center;
+    }
+  }
+}

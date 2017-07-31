@@ -1,5 +1,7 @@
 <template>
-  <div class="bgModel" @touchmove.prevent ></div>
+  <div class="bgModel" @touchmove.prevent>
+    <slot></slot>
+  </div>
 </template>
 <script>
 export default {
@@ -13,7 +15,7 @@ export default {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0, 0, 0, .7);
   z-index: 200;
 }
 </style>
