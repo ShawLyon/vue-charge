@@ -7,7 +7,7 @@
     <section class="add-main step-two">
       <div class="add-main-top">
         <p class="payNum">
-          <i>{{itemSelect}}</i>元</p>
+          <i>{{selectMoney}}</i>元</p>
         <p>钱包充值</p>
       </div>
       <div class="add-main-cell">
@@ -30,7 +30,9 @@
   </div>
 </template>
 <script>
+// import { mapState } from 'vuex'
 import { XButton } from 'vux'
+const _this = this;
 export default {
   
   props: ['itemSelect','selectMoney'], // 选择充值的金额
@@ -42,7 +44,6 @@ export default {
   },
   components: {
     XButton,
-
   },
   methods: {
     submitPay() {
@@ -52,7 +53,12 @@ export default {
     hideModel() {
       this.$emit('update:payShow', false)  // 父子组件双向绑定，点击将false传到父组件，改变父组件status
     }
-  }
+  },
+  // computed: {
+  //   ...mapState([
+  //     'selectMoney'
+  //   ])
+  // }
 }
 </script>
 <style lang="less" scoped>

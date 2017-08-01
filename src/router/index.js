@@ -15,6 +15,7 @@ const cash = resolve => require(['@/views/cash/cash'], resolve) //
 const cardCharge = resolve => require(['@/views/cardCharge/cardCharge'], resolve) //电卡充值
 const cardChargeDesc = resolve => require(['@/views/cardChargeDesc/cardChargeDesc'], resolve) //电卡充值详情
 const cardLoss = resolve => require(['@/views/cardLoss/cardLoss'], resolve) // 电卡挂失
+const cardLossDesc = resolve => require(['@/views/cardLossDesc/cardLossDesc'], resolve) // 电卡挂失详情
 const busineCooper = resolve => require(['@/views/busineCooper/busineCooper'], resolve) //商务合作
 const news = resolve => require(['@/views/news/news'], resolve) //消息
 const useHelp = resolve => require(['@/views/useHelp/useHelp'], resolve) // 使用帮助
@@ -145,7 +146,13 @@ const router = new Router({
       component: cardLoss,
       meta: {
         title: '电卡挂失'
-      }
+      },
+      children: [
+        {
+          path: 'cardLossDesc',
+          component: cardLossDesc
+        }
+      ]
     }, {
       path: '/myself/busineCooper',
       component: busineCooper,

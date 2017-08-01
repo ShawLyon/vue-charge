@@ -6,6 +6,7 @@
         <tab-item @on-item-click="changeShow(2)">已使用</tab-item>
         <tab-item @on-item-click="changeShow(3)">已过期</tab-item>
       </tab>
+      <p class="ticketDesc" @click="protocolShow = true">券使用说明</p>
       <section class="allList">
         <!--显示 可使用 -->
         <section v-if="listShow == 1">
@@ -133,25 +134,37 @@
           <!-- 无过期  -->
           <div class="no-expired" v-else>
             <img src="./quan.png" alt="">
-            <span >没有未过期的现金券</span>
+            <span>没有未过期的现金券</span>
           </div>
         </section>
       </section>
     </section>
+    <!-- 券使用说明  -->
+    <transition name="fade">
+      <bg-model v-show="protocolShow">
+        <p class="user-protocol">尚亿源为电动车车载充电机提供交流电源的供电装置，同时具备计量计费功能，可以实现监视并控制被充电池状态。</p>
+        <p class="user-protocol-close" >
+          <i class="fa fa-close fa-3x" @click="protocolShow = false"></i>
+        </p>
+      </bg-model>
+    </transition>
   </div>
 </template>
 <script>
+import BgModel from 'components/BgModel/BgModel'
 import { Tab, TabItem } from 'vux'
 export default {
   data() {
     return {
+      protocolShow: false,
       listShow: 1,
       items: ''
     }
   },
   components: {
     Tab,
-    TabItem
+    TabItem,
+    BgModel
   },
   methods: {
     changeShow(type) {
