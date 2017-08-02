@@ -12,7 +12,7 @@
       </header>
     </router-link>
     <group>
-      <cell title="充电记录" is-link link="/myself/mycharge" @click.native="goRouter">
+      <cell title="充电记录" is-link link="/myself/mycharge">
         <img src="./chongdian_jilu.png" width="18" style="display:block;margin-right:12px;" slot="icon"></img>
       </cell>
       <cell title="充值记录" is-link link="/myself/chargeRecord">
@@ -35,17 +35,22 @@
     </group>
     <group>
       <cell title="商务合作" is-link link="/myself/busineCooper">
-        <img src="./dianka_chongzhi.png" width="18" style="display:block;margin-right:12px;" slot="icon"></img>
+        <img src="./shangwu_hezuo.png" width="18" style="display:block;margin-right:12px;" slot="icon"></img>
       </cell>
       <cell title="消息" is-link link="/myself/news">
         <img src="./xiaoxi.png" width="18" style="display:block;margin-right:12px;" slot="icon"></img>
+        <!-- <badge text="8"></badge> -->
+        <div class="badge-value" slot="value">
+          <span class="vertical-middle">&nbsp;</span>
+          <badge text="8"></badge>
+        </div>
       </cell>
       <cell title="使用帮助"  is-link link="/myself/useHelp">
         <img src="./shiyong_bangzhu.png" width="18" style="display:block;margin-right:12px;" slot="icon"></img>
       </cell>
     </group>
     <group>
-      <cell title="设置" is-link link="/myself/useHelp">
+      <cell title="设置" is-link link="/myself/setting">
         <img src="./shezhi.png" width="18" style="display:block;margin-right:12px;" slot="icon"></img>
       </cell>
     </group>
@@ -53,16 +58,14 @@
 </template>
 <script>
 import router from 'router'
-import { Group, Cell } from 'vux'
+import { Group, Cell,Badge } from 'vux'
 export default {
   components: {
     Group,
-    Cell
+    Cell,
+    Badge
   },
   methods: {
-    goRouter() {
-      router.go(1);
-    }
   }
 }
 </script>

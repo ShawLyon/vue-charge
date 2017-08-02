@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <transition>
-      <keep-alive>
+      <!-- <keep-alive> -->
         <router-view v-wechat-title="$route.meta.title" class="set-height"></router-view>
-      </keep-alive>
+      <!-- </keep-alive> -->
     </transition>
   </div>
 </template>

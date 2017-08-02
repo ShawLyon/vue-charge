@@ -9,7 +9,7 @@ import VueScroller from 'vue-scroller'
 import wechatTitle from 'vue-wechat-title'
 import 'common/less/index.less'
 import 'font-awesome/css/font-awesome.min.css'
-import {ConfirmPlugin} from 'vux'
+import {ConfirmPlugin} from 'vux' // 询问框
 import vueg from 'vueg'
 import 'vueg/css/transition-min.css'
 

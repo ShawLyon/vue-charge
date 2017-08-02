@@ -1,5 +1,25 @@
 // 宽高
-.mixin(@width,@height){
+.wh(@width, @height) {
   width: @width;
   height: @height;
+}
+
+// 按钮/文本颜色
+.btc(@bg: #4478ac, @cr: #fff) {
+  background-color: @bg;
+  color: @cr;
+}
+
+
+/* 子路由覆盖父级 */
+.child-z-index {
+  display: block;
+  position: fixed;
+  background: #f3f3f3;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  z-index: 300;
 }

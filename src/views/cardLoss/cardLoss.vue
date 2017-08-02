@@ -16,7 +16,7 @@ export default {
   },
   methods:{
    goDesc() {
-     router.push('/myself/cardLoss/cardLossDesc')
+    //  router.push('/myself/cardLoss/cardLossDesc')
    }
   }
 }

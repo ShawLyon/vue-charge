@@ -13,8 +13,12 @@
       <x-button mini style="border-radius:99px;" class="loss-btn" @click.native="showCodeInput">立即挂失</x-button>
       <x-button plain mini style="border-radius:99px;" class="remove-btn" @click.native="codeShow = true">解挂</x-button>
     </footer>
+    <!-- 蒙版  -->
+    <transition name="fade">
+      <div class="bg-model" v-show="codeShow"></div>
+    </transition>
     <!-- 浮层  -->
-    <transition>
+    <transition name="fade">
       <section class="codePage" v-if="codeShow">
         <div class="codePage-input">
           <label>验证码:</label>
@@ -31,7 +35,7 @@
 </template>
 <script>
 import { XButton } from 'vux'
-const _this = this;
+
 export default {
   data() {
     return {
@@ -42,19 +46,10 @@ export default {
     XButton
   },
   created() {
-    this.showCodeInput();
+
   },
   methods: {
     showCodeInput: function() {
-      this.$vux.confirm.show({
-        // title:  '验证码',
-        // showInput: true,
-        confirmText: '确定解挂',
-        content: '<div>验证码:<input type="text" > <button @click.native="showAlert">获取验证码</button></div>',
-        // onConfirm(msg){
-        //   alert(msg);
-        // }
-      })
     },
     showAlert() {
       alert('点击了验证码按钮')

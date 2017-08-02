@@ -18,8 +18,12 @@ const cardLoss = resolve => require(['@/views/cardLoss/cardLoss'], resolve) // �
 const cardLossDesc = resolve => require(['@/views/cardLossDesc/cardLossDesc'], resolve) // 电卡挂失详情
 const busineCooper = resolve => require(['@/views/busineCooper/busineCooper'], resolve) //商务合作
 const news = resolve => require(['@/views/news/news'], resolve) //消息
+const newsDesc = resolve => require(['@/views/newsDesc/newsDesc'], resolve) //消息详情
 const useHelp = resolve => require(['@/views/useHelp/useHelp'], resolve) // 使用帮助
 const setting = resolve => require(['@/views/setting/setting'], resolve) // 设置
+const bindPhone = resolve => require(['@/views/bindPhone/bindPhone'], resolve) // 绑定手机号
+const changePwdStep1 = resolve => require(['@/views/changePwdStep1/changePwdStep1'], resolve) // 修改登录密码 1
+const changePwdStep2 = resolve => require(['@/views/changePwdStep2/changePwdStep2'], resolve) // 修改登录密码 2
 const addMoney = resolve => require(['@/views/addMoney/addMoney'], resolve)
 const stopCharge = resolve => require(['@/views/mycharge/children/stopCharge'], resolve) //停止充电
 const setnickname = resolve => require(['@/views/setnickname/setnickname'], resolve) //设置昵称
@@ -148,10 +152,10 @@ const router = new Router({
         title: '电卡挂失'
       },
       children: [
-        {
-          path: 'cardLossDesc',
-          component: cardLossDesc
-        }
+        // {
+        //   path: 'cardLossDesc',
+        //   component: cardLossDesc
+        // }
       ]
     }, {
       path: '/myself/busineCooper',
@@ -164,7 +168,13 @@ const router = new Router({
       component: news,
       meta: {
         title: '消息'
-      }
+      },
+      children: [
+        {
+          path: 'newsDesc',
+          component: newsDesc
+        }
+      ]
     }, {
       path: '/myself/useHelp',
       component: useHelp,
@@ -176,7 +186,19 @@ const router = new Router({
       component: setting,
       meta: {
         title: '设置'
-      }
+      },
+      children: [
+        {
+          path: 'bindPhone',
+          component: bindPhone
+        }, {
+          path: 'changePwdStep1',
+          component: changePwdStep1
+        },{
+          path: 'changePwdStep2',
+          component: changePwdStep2
+        }
+      ]
     }, {
       path: '/addMoney',
       component: addMoney,
