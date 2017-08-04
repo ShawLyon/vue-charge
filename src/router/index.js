@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+const QRcode = resolve => require(['@/views/QRcode/QRcode'], resolve)
 const home = resolve => require(['@/views/home/home'], resolve)
 const chargeDetail = resolve => require(['@/views/chargeDetail/chargeDetail'], resolve)
 const chargehistory = resolve => require(['@/views/chargehistory/chargehistory'], resolve)
@@ -24,7 +25,13 @@ const setting = resolve => require(['@/views/setting/setting'], resolve) // 设�
 const bindPhone = resolve => require(['@/views/bindPhone/bindPhone'], resolve) // 绑定手机号
 const changePwdStep1 = resolve => require(['@/views/changePwdStep1/changePwdStep1'], resolve) // 修改登录密码 1
 const changePwdStep2 = resolve => require(['@/views/changePwdStep2/changePwdStep2'], resolve) // 修改登录密码 2
-const addMoney = resolve => require(['@/views/addMoney/addMoney'], resolve)
+const payPwd = resolve => require(['@/views/payPwd/payPwd'], resolve) // 支付设置
+const freePayment = resolve => require(['@/views/payPwd/children/freePayment/freePayment'], resolve) // 免密支付开关
+const feedback = resolve => require(['@/views/feedback/feedback'], resolve) // 意见反馈
+const Copyright = resolve => require(['@/views/Copyright/Copyright'], resolve) // 版权声明
+const Disclaimer = resolve => require(['@/views/Disclaimer/Disclaimer'], resolve) // 免责声明
+const aboutUs = resolve => require(['@/views/aboutUs/aboutUs'], resolve) // 免责声明
+const addMoney = resolve => require(['@/views/addMoney/addMoney'], resolve) // 充值
 const stopCharge = resolve => require(['@/views/mycharge/children/stopCharge'], resolve) //停止充电
 const setnickname = resolve => require(['@/views/setnickname/setnickname'], resolve) //设置昵称
 const forgetPwdStep1 = resolve => require(['@/views/forgetPwdStep1/forgetPwdStep1'], resolve) //忘记密码step1
@@ -36,6 +43,13 @@ Vue.use(Router)
 
 const router = new Router({
   routes: [
+    {
+      path: '/QRcode',
+      component: QRcode,
+      meta:{
+        title: '二维码扫描'
+      }
+    },
     {
       path: '/',
       component: home,
@@ -152,10 +166,10 @@ const router = new Router({
         title: '电卡挂失'
       },
       children: [
-        // {
-        //   path: 'cardLossDesc',
-        //   component: cardLossDesc
-        // }
+        {
+          path: 'cardLossDesc',
+          component: cardLossDesc
+        }
       ]
     }, {
       path: '/myself/busineCooper',
@@ -189,14 +203,52 @@ const router = new Router({
       },
       children: [
         {
-          path: 'bindPhone',
+          path: 'bindPhone', // 绑定手机
           component: bindPhone
         }, {
-          path: 'changePwdStep1',
+          path: 'changePwdStep1', //修改登录密码
           component: changePwdStep1
-        },{
+        }, {
           path: 'changePwdStep2',
           component: changePwdStep2
+        }, {
+          path: 'payPwd', // 支付密码设置
+          component: payPwd,
+          meta: {
+            title: '支付密码设置'
+          },
+          children: [
+            {
+              path: 'freePayment',
+              component: freePayment
+            }
+          ]
+        }, {
+          path: 'feedback', // 意见反馈
+          component: feedback,
+          meta:{
+            title: '意见反馈'
+          }
+        }, {
+          path: 'Copyright', //版权声明
+          component: Copyright,
+          meta:{
+            title: '版权声明'
+          }
+        },
+        {
+          path: 'Disclaimer', //免责声明
+          component: Disclaimer,
+          meta:{
+            title: '免责声明'
+          }
+        },
+         {
+          path: 'aboutUs', // 关于我们
+          component: aboutUs,
+           meta:{
+            title: '关于我们'
+          }
         }
       ]
     }, {

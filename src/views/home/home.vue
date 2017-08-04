@@ -1,76 +1,59 @@
 <template>
   <div class="home">
     <x-header :left-options="{showBack: false}" class="hd-two">
-      <tab :line-width=6 active-color='#4478ac' v-model="index">
-        <tab-item class="vux-center" :selected="demo2 === item" v-for="(item, index) in list2" @click="demo2 = item" :key="index">{{item}}</tab-item>
+      <tab :line-width="6" custom-bar-width="60px" active-color="#4477ac">
+        <tab-item selected>电动车</tab-item>
+        <tab-item>汽车</tab-item>
       </tab>
       <a slot="left" class="userIcon" @click="goUserCentent">
         <i class="fa fa-user-circle-o" slot="overwrite-left"></i>
         <badge class="userBadge"></badge>
       </a>
-      <a slot="right" @click="toogleList" class="meun">
+      <a slot="right" @click="listShow = !listShow" class="meun">
         <i class="fa fa-list-ul" slot="overwrite-left"></i>
         <span class="meun-text">找桩</span>
       </a>
     </x-header>
   
-    <div class="mapContent">
-      <swiper v-model="index" height="100px" :show-dots="false">
-        <swiper-item v-for="(item, index) in list2" :key="index">
-          <div class="tab-swiper vux-center">{{item}} Container</div>
-        </swiper-item>
-      </swiper>
+    <!-- 地图  -->
+    <div class="amap-page-container">
+      <el-amap :vid="'amap-vue'" :center="center" :plugin="plugin"></el-amap>
+  
     </div>
   
     <transition name="chargelist">
-      <list-car v-if="listShow"></list-car>
+      <list-car v-if="listShow" :foo.sync="listShow"></list-car>
     </transition>
     <!--蒙板  -->
     <transition name="fade">
-      <div class="list-mask" v-show="listShow" @click="toogleList()"></div>
+      <div class="list-mask" v-show="listShow" @click="listShow = !listShow"></div>
     </transition>
-  
   </div>
 </template>
 <script>
+import { AMapManager } from 'vue-amap'
 import router from 'router'
 import ListCar from 'components/listCar/listCar'
-import { XHeader, XButton, Actionsheet, TransferDom, Tab, TabItem, Badge, Swiper, SwiperItem } from 'vux'
+import { XHeader, Tab, TabItem, Badge } from 'vux'
 import { mapState, mapMutations } from 'vuex'
 
 const list = () => ['电动车', '汽车']
 export default {
-  directives: {
-    TransferDom
-  },
   components: {
     ListCar,
     XHeader,
-    XButton,
-    Actionsheet,
-    TransferDom,
     Tab,
     TabItem,
-    Badge,
-    Swiper,
-    SwiperItem
+    Badge
   },
   data() {
     return {
-      list2: list(),
-      demo2: '美食',
-      index: 0,
-      menus: {
-        menu1: 'Take Photo',
-        menu2: 'Choose from photos'
-      },
-      showMenus: false,
+      listShow: false,
+      center: [121.59996, 31.197646],
+      plugin: ['ToolBar', 'PlaceSearch', 'Scale', 'Geolocation']
     }
   },
   computed: {
-    listShow() {
-      return this.fold;
-    },
     ...mapState([
       'chargeDesc',
       'fold'
@@ -80,16 +63,9 @@ export default {
     ...mapMutations([
       'TOOGLE_FOLD'
     ]),
-    toogleList() {
-      this.TOOGLE_FOLD();
-    },
     goUserCentent() {
       this.$router.push('/login');
     }
-
-  },
-  created() {
-
   }
 }
 </script>
@@ -98,5 +74,6 @@ export default {
 @import './home.less';
 @import '~common/less/variable.less';
 </style>
+
 
 

@@ -9,7 +9,7 @@
           <span class="">汽车</span>
         </router-link>
       </div>
-      <div class="headerR" @click="hideList()">
+      <div class="headerR" @click="hideList">
         <i class="fa fa-close (alias)"></i>
       </div>
     </div>
@@ -22,9 +22,10 @@
 import router from '../../router'
 import { mapMutations } from 'vuex'
 export default {
+  props:['listShow'],
   data() {
     return {
-
+      listShow: true
     }
   },
 
@@ -33,7 +34,7 @@ export default {
       'TOOGLE_FOLD'
     ]),
     hideList() { // 点击 X   hide list
-      this.TOOGLE_FOLD();
+      this.$emit('update:foo',false);
     },
 
   },

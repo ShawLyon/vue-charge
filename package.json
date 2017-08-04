@@ -12,6 +12,8 @@
     "better-scroll": "^0.4.0",
     "fastclick": "^1.0.6",
     "vue": "^2.2.2",
+    "vue-amap": "^0.2.9",
+    "vue-qriously": "^1.1.1",
     "vue-router": "^2.2.0",
     "vue-scroller": "^2.2.1",
     "vue-wechat-title": "^2.0.4",

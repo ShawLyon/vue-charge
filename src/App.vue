@@ -14,7 +14,10 @@ export default {
 </script>
 <style lang="less">
 @import '~vux/src/styles/reset.less';
+html,body,#app{
+  height: 100%;
+}
 .set-height {
-  min-height: 100vh
+  // min-height: 100vh;
 }
 </style>

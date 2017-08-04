@@ -12,7 +12,7 @@
         </p>
       </div>
       <div class="type-r">
-        <x-button mini class="codeBtn">扫码充电</x-button>
+        <x-button mini class="codeBtn" @click.native="showQRcode">扫码充电</x-button>
       </div>
     </div>
     <div class="chargePort">
@@ -49,6 +49,7 @@
   </div>
 </template>
  <script >
+import router from 'router'
 import { XButton, Cell } from 'vux'
 import { mapState } from 'vuex'
 export default {
@@ -69,6 +70,11 @@ export default {
   components: {
     XButton,
     Cell
+  },
+  methods: {
+    showQRcode() {
+      router.push('/QRcode')
+    }
   }
 }
 </script>

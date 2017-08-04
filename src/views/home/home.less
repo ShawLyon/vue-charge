@@ -3,21 +3,18 @@
   }
 
   .home {
+    height: 100%;
     .hd-two {
-      // height: 44px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
       background-color: #fff;
-      margin-bottom: 10px;
-      .vux-header .vux-header-title,
-      .vux-header h1 {
-        height: 44px;
-      }
-      .fa-user-circle-o,
-      .fa-list-ul {
-        font-size: 36px;
+      .fa-list-ul,
+      .fa-user-circle-o {
+        font-size: 2.143rem;
         color: #262930;
-      }
-      .fa-list-ul {
-        font-size: 20px;
       }
       .userIcon {
         position: relative;
@@ -28,9 +25,14 @@
         }
       }
       .meun {
+        .fa-list-ul {
+          font-size: 1.429rem;
+        }
         text-align: center;
+        line-height: 1rem;
         .meun-text {
           display: block;
+          font-size: 0.714rem;
         }
       }
     }
@@ -42,6 +44,10 @@
       height: 100%;
       background: rgba(0, 0, 0, .5);
       z-index: 10;
+    }
+    /* header icon style */
+    .vux-header .vux-header-left, .vux-header .vux-header-right{
+      top: 9px;
     }
     .fade-enter-active,
     .fade-leave-active {
@@ -64,4 +70,10 @@
       background-color: #fff;
       height: 100px;
     }
+  }
+  /* 地图 */
+
+  .amap-page-container {
+    width: 100%;
+    height: 100%;
   }
