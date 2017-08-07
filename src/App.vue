@@ -7,6 +7,7 @@
     </transition>
   </div>
 </template>
+
 <script>
 export default {
   name: 'app'
@@ -18,6 +19,6 @@ html,body,#app{
   height: 100%;
 }
 .set-height {
-  // min-height: 100vh;
+  min-height: 100vh;
 }
 </style>

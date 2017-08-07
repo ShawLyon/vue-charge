@@ -15,14 +15,11 @@
       </a>
     </x-header>
   
-    <!-- 地图  -->
-    <div class="amap-page-container">
-      <el-amap :vid="'amap-vue'" :center="center" :plugin="plugin"></el-amap>
-  
-    </div>
-  
+    <!-- 地图 start -->
+    <charge-map></charge-map>
+    <!-- 地图 end -->
     <transition name="chargelist">
-      <list-car v-if="listShow" :foo.sync="listShow"></list-car>
+      <list-car v-if="listShow" :foo.sync="listShow" ></list-car>
     </transition>
     <!--蒙板  -->
     <transition name="fade">
@@ -30,38 +27,38 @@
     </transition>
   </div>
 </template>
+
 <script>
-import { AMapManager } from 'vue-amap'
+import ChargeMap from 'components/ChargeMap/ChargeMap'
 import router from 'router'
 import ListCar from 'components/listCar/listCar'
 import { XHeader, Tab, TabItem, Badge } from 'vux'
 import { mapState, mapMutations } from 'vuex'
 
-const list = () => ['电动车', '汽车']
 export default {
   components: {
     ListCar,
     XHeader,
     Tab,
     TabItem,
-    Badge
+    Badge,
+    ChargeMap
   },
   data() {
     return {
-      listShow: false,
-      center: [121.59996, 31.197646],
-      plugin: ['ToolBar', 'PlaceSearch', 'Scale', 'Geolocation']
+      listShow: false
     }
   },
+  
   computed: {
     ...mapState([
-      'chargeDesc',
-      'fold'
+      // 'chargeDesc',
+      // 'fold'
     ])
   },
   methods: {
     ...mapMutations([
-      'TOOGLE_FOLD'
+      // 'TOOGLE_FOLD'
     ]),
     goUserCentent() {
       this.$router.push('/login');
@@ -73,6 +70,10 @@ export default {
 @import '~vux/src/styles/1px.less';
 @import './home.less';
 @import '~common/less/variable.less';
+
+.home {
+
+}
 </style>
 
 

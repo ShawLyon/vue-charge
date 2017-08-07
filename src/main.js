@@ -9,18 +9,12 @@ import VueScroller from 'vue-scroller'
 import wechatTitle from 'vue-wechat-title'
 import 'common/less/index.less'
 import 'font-awesome/css/font-awesome.min.css'
-import {ConfirmPlugin} from 'vux' /* // 询问框 */
-import vueg from 'vueg'  /* // router过度动画 */
+import {ConfirmPlugin} from 'vux' /*  询问框 */
+import vueg from 'vueg'  /* router过度动画 */
 import 'vueg/css/transition-min.css'
-import VueQriously from 'vue-qriously' /* // 二维码 */
-import AMap from 'vue-amap' /* // 高德地图vue插件 */
-// import { lazyAMapApiLoaderInstance } from 'vue-amap' /* //基于高德地图sdk */
-/* // 初始化  VueAMap */
-AMap.initAMapApiLoader({
-  key: 'c51dadec67657f08b2eb64b8e707817c',
-  plugin: ['Autocomplete', 'PlaceSearch', 'Scale', 'OverView', 'ToolBar', 'MapType', 'PolyEditor', 'CircleEditor','Geolocation']
-})
+import VueQriously from 'vue-qriously' /* 二维码 */
 
+/* 地图 */
 
 const options = {
   duration: '0.5', //转场动画时长，默认为0.3，单位秒
@@ -41,7 +35,7 @@ Vue.use(ConfirmPlugin) // 确认信息弹出框插件
 Vue.use(VueScroller) // 滚动插件
 Vue.use(wechatTitle) // 微信端title插件
 Vue.use(VueQriously) // 二维码
-Vue.use(AMap)
+
 
 FastClick.attach(document.body)
 
