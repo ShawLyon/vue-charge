@@ -1,44 +1,52 @@
 <template>
   <div id="map-container">
+    <el-amap vid="amapDemo" :zoom="zoom" :center="center" :plugin="plugins">
+      <el-amap-marker v-for="marker in markers" :position="marker.position"></el-amap-marker>
+      <el-amap-ground-image v-for="groundimage in groundimages" :url="groundimage.url" :bounds="groundimage.bounds" :events="groundimage.events"></el-amap-ground-image>
+    </el-amap>
   </div>
 </template>
 <script>
-// import AMap from 'AMap'
-// console.log(AMap)
 export default {
-  mounted: function () {
-    this.init()
-  },
-  methods: {
-    init: function () {
-      var map = new AMap.Map('map-container', {
-        center: [113.814549, 22.63336],
-        resizeEnable: true,
-        zoom: 10
-      })
-
-      AMap.plugin(['AMap.ToolBar', 'AMap.Scale', 'AMap.Geolocation'], function () {
-        map.addControl(new AMap.ToolBar())
-        map.addControl(new AMap.Scale())
-        map.addControl(new AMap.Geolocation())
-      })
-      /* 覆盖物 */
-      //添加点标记，并使用自己的icon
-      new AMap.Marker({
-        map: map,
-        position: [113.814549, 22.63336],
-        icon: new AMap.Icon({
-          size: new AMap.Size(40, 50),  //图标大小
-          image: "./zhiliu.png",
-          imageOffset: new AMap.Pixel(0, -60)
-        })
-      });
-
-      //也可以在创建完成后通过setMap方法执行地图对象
-      // marker.setMap(map);
-
-
-
+  data() {
+    let self = this;
+    return {
+      zoom: 10,
+      center: [113.814549, 22.63336],
+      lng: 0,
+      lat: 0,
+      plugins: ['ToolBar', {
+        pName: 'Geolocation',
+        events: {
+          init(o) {
+            // o 是高德地图定位插件实例
+            o.getCurrentPosition((status, result) => {
+              if (result && result.position) {
+                self.lng = result.position.lng;
+                self.lat = result.position.lat;
+                self.center = [self.lng, self.lat];
+                self.$nextTick();
+              }
+            });
+          }
+        }
+      }],
+      markers: [{
+        position: [113.879037, 22.548737]
+      }, {
+        position: [113.942788, 22.547231]
+      }],
+      groundimages: [
+        {
+          url: '/jiaoliu.png',
+          bounds: [[121.5273285, 31.21515044], [122.9273285, 32.31515044]],
+          events: {
+            click() {
+              alert('click groundimage');
+            }
+          }
+        }
+      ]
     }
   }
 }

@@ -13,8 +13,14 @@ import {ConfirmPlugin} from 'vux' /*  询问框 */
 import vueg from 'vueg'  /* router过度动画 */
 import 'vueg/css/transition-min.css'
 import VueQriously from 'vue-qriously' /* 二维码 */
-
-/* 地图 */
+import VueAMap from 'vue-amap'
+/* 地图 初始化*/
+VueAMap.initAMapApiLoader({
+  // 高德的key 
+  key: 'c51dadec67657f08b2eb64b8e707817c',
+  // 插件集合 
+  plugin: ['AMap.Autocomplete', 'AMap.PlaceSearch', 'AMap.Scale', 'AMap.OverView', 'AMap.ToolBar','AMap.Geolocation', 'AMap.MapType', 'AMap.PolyEditor', 'AMap.CircleEditor']
+});
 
 const options = {
   duration: '0.5', //转场动画时长，默认为0.3，单位秒
@@ -35,6 +41,7 @@ Vue.use(ConfirmPlugin) // 确认信息弹出框插件
 Vue.use(VueScroller) // 滚动插件
 Vue.use(wechatTitle) // 微信端title插件
 Vue.use(VueQriously) // 二维码
+Vue.use(VueAMap)  // 地图
 
 
 FastClick.attach(document.body)
