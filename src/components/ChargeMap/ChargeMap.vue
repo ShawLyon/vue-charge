@@ -20,22 +20,10 @@ export default {
     var map = new AMap.Map('container', {
       resizeEnable: true,
       zoom: 12,
-      center: [116.480983, 40.0958]
+      center: [113.907419, 22.498795]
     });
+
     // 2.遮盖物
-    var marker = new AMap.Marker({
-      position: [113.907419, 22.498795], //marker所在的位置
-      offset: new AMap.Pixel(-17, -42), //相对于基点的偏移位置
-      icon: new AMap.Icon({
-        size: new AMap.Size(40, 50),  //图标大小
-        image: "http://webapi.amap.com/theme/v1.3/images/newpc/way_btn2.png",
-        imageOffset: new AMap.Pixel(0, -60)
-      }),
-      content: '<div class="marker-route marker-marker-bus-from"></div>',  //自定义点标记覆盖物内容
-      map: map//创建时直接赋予map属性
-    });
-    //也可以在创建完成后通过setMap方法执行地图对象
-    marker.setMap(map);
 
 
     // 3.插件-控件
@@ -55,31 +43,180 @@ export default {
       geolocation.getCurrentPosition(); // 获取当前定位
       AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
     })
-  },
-  data() {
+    // 4.信息窗体
+    addMarker();
+    //添加marker标记
+    function addMarker() {
+      map.clearMap();
+      /* var marker = new AMap.Marker({
+        map: map,
+        position: [113.921152,22.496258]
+      }); */
+      let markers = [{
+        position: [113.922354, 22.496734],
+        content: '<div class="marker-route marker-marker-bus-from"></div>',  //自定义点标记覆盖物内容
+      }, {
+        position: [113.906046, 22.508945],
+        content: '<div class="marker-route marker-marker-bus-from"></div>',  //自定义点标记覆盖物内容
+      }, {
+        position: [113.887506, 22.503394],
+        content: '<div class="marker-route marker-marker-bus-from"></div>',  //自定义点标记覆盖物内容
+      }]
+      markers.forEach(function (marker) {
+        let mker = new AMap.Marker({
+          map: map,
+          content: marker.content,
+          position: [marker.position[0], marker.position[1]],
+          offset: new AMap.Pixel(-17, -42), //相对于基点的偏移位置
+        })
+        console.log(mker)
+        AMap.event.addListener(mker, 'click', function () {
+          infoWindow.open(map, mker.getPosition());
+        });
+      })
+      //鼠标点击marker弹出自定义的信息窗体
 
+    }
+
+    //实例化信息窗体
+    var title = '方恒假日酒店<span style="font-size:11px;color:#F00;">价格:318</span>',
+      content = [];
+    content.push("<img src='http://tpc.googlesyndication.com/simgad/5843493769827749134'>地址：北京市朝阳区阜通东大街6号院3号楼东北8.3公里");
+    content.push("电话：010-64733333");
+    content.push("<a href='http://ditu.amap.com/detail/B000A8URXB?citycode=110105'>详细信息</a>");
+    // content.push("<a href='#/chargeDetail'>详细信息</a>");
+
+    var infoWindow = new AMap.InfoWindow({
+      isCustom: true,  //使用自定义窗体
+      content: createInfoWindow(title, content.join("<br/>")),
+      offset: new AMap.Pixel(16, -45)
+    });
+
+    //构建自定义信息窗体
+    function createInfoWindow(title, content) {
+      var info = document.createElement("div");
+      info.className = "info";
+
+      //可以通过下面的方式修改自定义窗体的宽高
+      //info.style.width = "400px";
+      // 定义顶部标题
+      var top = document.createElement("div");
+      var titleD = document.createElement("div");
+      var closeX = document.createElement("img");
+      top.className = "info-top";
+      titleD.innerHTML = title;
+      closeX.src = "http://webapi.amap.com/images/close2.gif";
+      closeX.onclick = closeInfoWindow;
+
+      top.appendChild(titleD);
+      top.appendChild(closeX);
+      info.appendChild(top);
+
+      // 定义中部内容
+      var middle = document.createElement("div");
+      middle.className = "info-middle";
+      middle.style.backgroundColor = 'white';
+      middle.innerHTML = content;
+      info.appendChild(middle);
+
+      // 定义底部内容
+      var bottom = document.createElement("div");
+      bottom.className = "info-bottom";
+      bottom.style.position = 'relative';
+      bottom.style.top = '0px';
+      bottom.style.margin = '0 auto';
+      var sharp = document.createElement("img");
+      sharp.src = "http://webapi.amap.com/images/sharp.png";
+      bottom.appendChild(sharp);
+      info.appendChild(bottom);
+      return info;
+    }
+
+    //关闭信息窗体
+    function closeInfoWindow() {
+      map.clearInfoWindow();
+    }
   }
 }
 </script>
-<style lang="less" >
-#map-container {
+<style lang="less">
+#container {
   // margin-top: 46px;
   // height: 100%;
   // width: 100%;
   // overflow:hidden;
-}
+  .amap-marker .marker-route {
+    position: absolute;
+    width: 2.143rem;
+    height: 3.071rem;
+    color: #e90000; // background: url(http://webapi.amap.com/theme/v1.3/images/newpc/poi-1.png) no-repeat;
+    background: center center url('jiaoliu.png') no-repeat;
+    background-size: 100% 100%;
+    cursor: pointer;
+  }
 
-.amap-marker .marker-route {
-  position: absolute;
-  width: 40px;
-  height: 44px;
-  color: #e90000;
-  background: url('zhiliu.png') no-repeat;
-  cursor: pointer;
-}
+  .amap-marker .marker-marker-bus-from {
+    // background-position: ;
+  }
 
-.amap-marker .marker-marker-bus-from {
-  background-position: -334px -180px;
+  .info {
+    border: solid 1px silver;
+  }
+
+  div.info-top {
+    position: relative;
+    background: none repeat scroll 0 0 #F9F9F9;
+    border-bottom: 1px solid #CCC;
+    border-radius: 5px 5px 0 0;
+  }
+
+  div.info-top div {
+    display: inline-block;
+    color: #333333;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 31px;
+    padding: 0 10px;
+  }
+
+  div.info-top img {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition-duration: 0.25s;
+  }
+
+  div.info-top img:hover {
+    box-shadow: 0px 0px 5px #000;
+  }
+
+  div.info-middle {
+    font-size: 12px;
+    padding: 6px;
+    line-height: 20px;
+  }
+
+  div.info-bottom {
+    height: 0px;
+    width: 100%;
+    clear: both;
+    text-align: center;
+  }
+
+  div.info-bottom img {
+    position: relative;
+    z-index: 104;
+  }
+
+  span {
+    margin-left: 5px;
+    font-size: 11px;
+  }
+
+  .info-middle img {
+    float: left;
+    margin-right: 6px;
+  }
 }
 </style>
 
